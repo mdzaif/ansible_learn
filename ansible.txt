@@ -1,0 +1,10 @@
+# check connection
+ansible all --key-file ~/.ssh/ansible -i inventory -m ping
+ansible all -m ping # when config files are created
+
+# check host list
+ansible all --list-hosts
+
+# check the facts
+ansible all -m gather_facts
+ansible all -m gather_facts --limit <ip address>
