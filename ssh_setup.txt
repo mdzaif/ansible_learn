@@ -1,0 +1,12 @@
+#generate ssh key
+ssh-keygen -t ed25519 -C "type the key name"
+
+# pass the key to the server
+ssh-copy-id -i /path/of/the/key.pub user@server_ip
+
+#setup git repository
+1. Create a github repository
+2. Now go to the github settings/ssh and gpg keys/add new key in ssh key
+3. Create a ssh key and add it to that ssh section and save it
+
+
