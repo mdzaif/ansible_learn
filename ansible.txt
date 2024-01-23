@@ -11,3 +11,12 @@ ansible all -m gather_facts --limit <ip address>
 
 # update in debian based update list
 ansible all -m apt -a update_cache=true --become --ask-become-pass
+
+# install a package
+anisble all -m apt -a name=vim-nox --become --ask-become-pass
+
+# install a package via the apt module with latest verison
+anisble all -m apt -a "name=snapd state=latest" --become --ask-become-pass
+
+# upgrade all the package update
+ansible all -m apt upgrade=dist --become --ask-become-pass
