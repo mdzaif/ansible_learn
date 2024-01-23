@@ -1,0 +1,13 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: udpate repository list
+    apt:
+       update_cache: true
+
+  - name: install apache2 package
+    apt:
+      name: apache2
