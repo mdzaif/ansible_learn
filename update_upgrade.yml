@@ -1,0 +1,13 @@
+---
+
+- hosts: zaif@192.168.0.110
+  become: true
+  tasks:
+
+  - name: update the package repositories list
+    apt:
+      update_cache: true
+
+  - name: upgrade packages
+    apt:
+      upgrade: dist
