@@ -6,37 +6,22 @@
   become: true
   tasks:
 
-  - name: udpate repository list
-    apt:
-       update_cache: true
-    when: ansible_distribution == "Ubuntu"
-
   - name: install apache2 package
     apt:
-      name: apache2
+      name:
+        - apache2
+        - libapache2-mod-php
       state: latest
+      update_cache: true
     when: ansible_distribution == "Ubuntu"
-
-  - name: install php
-    apt:
-      name: libapache2-mod-php
-      state: latest
-    when: ansible_distribution == "Ubuntu"
-
-  - name: update cache for centos
-    ansible.builtin.yum:
-                     update_cache: true
-    when: ansible_distribution == "CentOS"
 
   - name: install apache2 in centos
     ansible.builtin.yum:
-                     name: httpd
+                     name:
+                       - httpd
+                       - php
                      state: latest
+                     update_cache: true
     when: ansible_distribution == "CentOS"
 
-  - name: install php in centos
-    ansible.builtin.yum:
-                     name: php
-                     state: latest
-    when: ansible_distribution == "CentOS"
 
