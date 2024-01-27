@@ -20,3 +20,15 @@ anisble all -m apt -a "name=snapd state=latest" --become --ask-become-pass
 
 # upgrade all the package update
 ansible all -m apt upgrade=dist --become --ask-become-pass
+
+# ansible tags list
+ansible-playbook --list-tags <playbook.yml>
+
+# use of tags
+## method 1: for single tags
+ansible-playbook --tags <tags_name> --ask-become-pass <playbook.yml>
+
+## method 2: for multiple tags
+ansible-playbook --tags <"tags_name,..."> --ask-become-pass <playbook.yml>
+
+

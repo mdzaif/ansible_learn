@@ -1,13 +1,29 @@
 ---
 
-- hosts: zaif@192.168.0.110
+- hosts: home_server
   become: true
   tasks:
 
   - name: update the package repositories list
+    tags: ubuntu,upgrades
     apt:
       update_cache: true
 
   - name: upgrade packages
+    tags: ubuntu,upgrades
     apt:
       upgrade: dist
+
+- hosts: virtual_server
+  become: true
+  tasks:
+
+  - name: update the package repositories list
+    ansible.builtin.yum:
+                      tags: centos,updtae_only
+                      update_cache: true
+
+  - name: upgrade packages
+    ansible.builtin.yum:
+                      tags: centos,update_only
+                      update_only: true
