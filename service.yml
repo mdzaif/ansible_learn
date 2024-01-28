@@ -1,0 +1,12 @@
+---
+
+- hosts: home_server
+  become: true
+  tasks:
+
+  - name: change the nginx
+    tags: ubuntu,nginx
+    service:
+        name: nginx
+        state: started
+        enabled: yes
