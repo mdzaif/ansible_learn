@@ -19,11 +19,11 @@
   tasks:
 
   - name: update the package repositories list
+    tags: centos,update_only
     ansible.builtin.yum:
-                      tags: centos,updtae_only
                       update_cache: true
 
   - name: upgrade packages
+    tags: centos,update_only
     ansible.builtin.yum:
-                      tags: centos,update_only
                       update_only: true
