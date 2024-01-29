@@ -1,0 +1,12 @@
+---
+
+- hosts: home_server
+  become: true
+  roles:
+    - home_server
+
+- hosts: virtual_server
+  become: true
+  roles:
+    - virtual_server
+

@@ -1,0 +1,4 @@
+- name: update repo
+  apt:
+    update_cache: true
+    upgrade: yes

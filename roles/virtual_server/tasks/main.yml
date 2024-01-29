@@ -1,0 +1,4 @@
+- name: update repo
+  ansible.builtin.yum:
+                    update_cache: true
+                    update_only: yes
