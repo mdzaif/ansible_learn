@@ -1,5 +1,11 @@
 ---
 
+- hosts: all
+  become: true
+  roles:
+    - base
+
+
 - hosts: home_server
   become: true
   roles:

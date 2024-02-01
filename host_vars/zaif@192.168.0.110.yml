@@ -1,0 +1,5 @@
+apache_package: apache2
+apache_service: apache2
+php_package_name: libapache2-mod-php
+ssh_users: "zaif ansi"
+sshd_template_file: sshd_config_ubuntu.j2

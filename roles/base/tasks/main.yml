@@ -1,0 +1,14 @@
+- name: add ssh key for ansi
+  authorized_key:
+    user: ansi
+    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILa5eE14xvxEM/wwsT9Cgpubf0kcMfy4dW4GkL1Cl+sc ansible access"
+
+- name: generate ssshd_config file from template
+  tags: ssh
+  template:
+    src: "{{ sshd_template_file }}"
+    dest: /etc/ssh/sshd_config
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart_sshd
