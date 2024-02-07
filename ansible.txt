@@ -31,4 +31,23 @@ ansible-playbook --tags <tags_name> --ask-become-pass <playbook.yml>
 ## method 2: for multiple tags
 ansible-playbook --tags <"tags_name,..."> --ask-become-pass <playbook.yml>
 
+#encryption with ansible
+1. create a password (strong) with randomly generated
+2. create a file in home/user derectory (~/.vault_key); then paste the password and save it.
+3. change the permission that only owner can read and write it.
+## to ancript the file
+ansible-vault encrypt <file_name>
+# or
+ansible-vault encrypt --vault-password-file ~/.vault_key <file_name>
 
+## decrypt the file
+ansible-vault decrypt --vault-password-file ~/.vault_key <file_name>
+
+## edit encrypted file
+anisble-vault edit --vault-password-file ~/.vault_key <file_name>
+
+## view encrypted file
+ansible-vault view --vault-password-file ~/.vault-key <file_name>
+
+# change the key
+ansible rekey <file_name> --vault-password-file ~/.vault_key
